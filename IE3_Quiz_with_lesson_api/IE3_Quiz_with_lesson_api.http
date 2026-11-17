@@ -1,6 +1,31 @@
-@IE3_Quiz_with_lesson_api_HostAddress = http://localhost:5001
+@IE3_Quiz_with_lesson_api_HostAddress = https://localhost:7150
 
-GET {{IE3_Quiz_with_lesson_api_HostAddress}}/weatherforecast/
+### 1. Get All Books (200 OK)
+GET {{IE3_Quiz_with_lesson_api_HostAddress}}/api/books
 Accept: application/json
 
-###
+### 2. Create a Book (201 Created)
+POST {{IE3_Quiz_with_lesson_api_HostAddress}}/api/books
+Content-Type: application/json
+
+{
+  "title": "Domain-Driven Design",
+  "author": "Eric Evans",
+  "isAvailable": true,
+  "yearPublished": 2003
+}
+
+### 3. Update a Book (204 No Content)
+PUT {{IE3_Quiz_with_lesson_api_HostAddress}}/api/books/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Clean Architecture (Updated)",
+  "author": "Robert C. Martin",
+  "isAvailable": true,
+  "yearPublished": 2017
+}
+
+### 4. Delete a Book (204 No Content)
+DELETE {{IE3_Quiz_with_lesson_api_HostAddress}}/api/books/2
